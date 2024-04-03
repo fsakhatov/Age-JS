@@ -47,9 +47,14 @@ btn.addEventListener('click', (e) => {
         count++;
     }
     if( count === 3){
-        s1.innerText = (date.getFullYear() - year.value)
-        s2.innerText = (date.getMonth()+1) - month.value
-        s3.innerText = day.value
+        let birthday = `${month.value}/${day.value}/${year.value}`;
+
+        let res = new Date(birthday)
+        let result = Date.now() - res;
+        let ageDate = new Date(result)
+        s1.innerText = ageDate.getUTCFullYear() - 1970;
+        s2.innerText =  ageDate.getUTCMonth();
+        s3.innerText = ageDate.getUTCDay()-1;
     }
 }
 
